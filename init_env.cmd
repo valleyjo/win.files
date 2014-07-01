@@ -15,9 +15,10 @@ path=%path%;C:\dev;%dotfiles%
 
 :: --------------------
 :: Prompt Settings
-::  ex: 03:50:12.34 | Sun 12/03/1992 | C:\Default\Start\Dir
+::  ex: 03:50:12.34 | Sun 12/03/1992 | Directory Stack: +++
+		C:\Default\Start\Dir
 :: --------------------
-prompt $T$S$B$S$D$S$B$S$P$G
+prompt $T$S$B$S$D$S$B$SDirectory$SStack:$S$+$_$P$G
 
 :: --------------------
 :: Aliases
