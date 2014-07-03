@@ -1,5 +1,8 @@
 @echo off
 
+:: Startup directory
+chdir C:\
+
 :: --------------------
 :: Initialize Variables
 :: --------------------
@@ -16,7 +19,7 @@ path=%path%;C:\dev;%dotfiles%
 :: --------------------
 :: Prompt Settings
 ::  ex: 03:50:12.34 | Sun 12/03/1992 | Directory Stack: +++
-		C:\Default\Start\Dir
+::      c:\Default\Start\Dir
 :: --------------------
 prompt $T$S$B$S$D$S$B$SDirectory$SStack:$S$+$_$P$G
 
@@ -28,7 +31,7 @@ doskey ls=dir /w $*
 doskey cs=cd $* $t dir /w
 doskey subl=%sublime% $*
 doskey fs=findstr /s /p /i /n $* *
-doskey ll=ls /a
+doskey ll=ls /a $*
 
 :: Copy present working directory to the clipboard
 doskey cpwd=echo %cd% $b clip
@@ -42,7 +45,7 @@ doskey cpwd=echo %cd% $b clip
 doskey lock=wizmo blank
 
 :: default flags for The Silver Searcher
-doskey ag=ag -p %dotfiles\.agignore -s $*
+doskey agdf=ag -p %dotfiles\.agignore -s $*
 
 :: --------------------
 :: Easy directory traversal
