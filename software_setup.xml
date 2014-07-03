@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packages>
+  <package id="GoogleChrome" />
+  <package id="vim" />
+  <package id="Console2" />
+  <package id="fiddler"/>
+  <package id="sublimetext2" />
+  <package id="procexp" />
+  <package id="f.lux" />
+  <package id="EthanBrown.ConEmuConfig" />
+  <package id="dexpot" />
+</packages>
