@@ -19,8 +19,11 @@ set dotfiles=C:\dev\win.files
   copy /y %dotfiles%\_vimrc %userprofile%\_vimrc
   robocopy %dotfiles%\vimfiles %userprofile%\vimfiles /MIR
 
+:ModifyRegistry
+  regedit /S swap_caps_lock_and_control.reg
+
 :InstallSoftware
-::  cinst packages.config
+  cinst packages.config
 
 ::InstallVimPlugins
 ::  git clone https://github.com/vim-scripts/Align.git
