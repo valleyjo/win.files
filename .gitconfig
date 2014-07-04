@@ -18,7 +18,7 @@
         branch = auto
         ui = true
 [core]
-        excludesfile = C:\dev\.gitignore
+        excludesfile = C:/dev/.gitignore
         editor = vim
 [apply]
         whitespace = nowarn

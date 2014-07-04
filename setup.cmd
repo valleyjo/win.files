@@ -1,4 +1,4 @@
-::@echo off
+@echo off
 
 if not exist c:\dev\win.files\nul goto :error
 set dotfiles=C:\dev\win.files
@@ -7,22 +7,17 @@ set dotfiles=C:\dev\win.files
   chdir c:\dev\win.files
 
   :: ConEmu
-  del %AppData%\ConEmu.xml
-  copy %dotfiles%\ConEmu.xml %AppData%\ConEmu.xml
+  copy /y %dotfiles%\ConEmu.xml %AppData%\ConEmu.xml
 
   :: Console2
-  if exist %AppData%\Console2\console.xml del %AppData%\Console2\console.xml
-  copy %dotfiles%\ConEmu.xml %AppData%\Console2\console.xml
+  robocopy %dotfiles%\Console2 %AppData%\Console2 /MIR
 
   :: Git
-  if exist %userprofile%\.gitconfig del %userprofile%\.gitconfig
-  copy %dotfiles%\.gitconfig %userprofile%\.gitconfig
+  copy /y %dotfiles%\.gitconfig %userprofile%\.gitconfig
 
   :: Vim
-  if exist %userprofile%\_vimrc del %userprofile$\_vimrc
-  copy %dotfiles%\_vimrc %userprofile%\_vimrc
-  if exist %userprofile%\_vimrc del %userprofile%\vimfiles
-  copy %dotfiles%\vimfiles %userprofile%\vimfiles
+  copy /y %dotfiles%\_vimrc %userprofile%\_vimrc
+  robocopy %dotfiles%\vimfiles %userprofile%\vimfiles /MIR
 
 :InstallSoftware
 ::  cinst packages.config
@@ -30,6 +25,8 @@ set dotfiles=C:\dev\win.files
 ::InstallVimPlugins
 ::  git clone https://github.com/vim-scripts/Align.git
 ::  git clone https://github.com/jeffkreeftmeijer/vim-numbertoggle.git
+
+goto :eof
 
 :RepoMissingError
   echo \n---------- Error ----------
