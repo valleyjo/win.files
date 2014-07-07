@@ -7,7 +7,7 @@ set dotfiles=C:\dev\win.files
   chdir c:\dev\win.files
 
   :: ConEmu
-  copy /y %dotfiles%\ConEmu.xml %AppData%\ConEmu.xml
+  copy /y %dotfiles%\ConEmu.xml %ProgramFiles%\ConEmu\ConEmu.xml
 
   :: Console2
   robocopy %dotfiles%\Console2 %AppData%\Console2 /MIR /njh /njs /ndl /nc /ns
