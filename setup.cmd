@@ -19,6 +19,9 @@ set dotfiles=C:\dev\win.files
   copy /y %dotfiles%\_vimrc %userprofile%\_vimrc
   robocopy %dotfiles%\vimfiles %userprofile%\vimfiles /MIR /njh /njs /ndl /nc /ns
 
+  :: Dexpot
+  robocopy %dotfiles%\Dexpot %AppData%\Dexpot /MIR /njh /njs /ndl /nc /ns
+
 :ModifyRegistry
   regedit /S swap_caps_lock_and_control.reg
 
@@ -32,7 +35,8 @@ set dotfiles=C:\dev\win.files
 goto :eof
 
 :RepoMissingError
-  echo \n---------- Error ----------
+  echo
+  echo ---------- Error ----------
   echo win.files repo not found (c:\dev\win.files)
   echo Please run first_run.cmd first
 
