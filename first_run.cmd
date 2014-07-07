@@ -1,10 +1,10 @@
 @echo off
 
 :instChocolatey
-  if exist C:\Chocolatey\nul goto :instGit
+  if exist %ProgramData%\chocolatey\nul goto :instGit
   echo
   echo ----- Installing Chocolatey -----
-  @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%systemdrive%\chocolatey\bin
+  @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ProgramData%\chocolatey\bin
 
 :instGit
   if exist "C:\Program Files (x86)\Git\nul" goto :dev

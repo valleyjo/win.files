@@ -3,6 +3,9 @@
 if not exist c:\dev\win.files\nul goto :error
 set dotfiles=C:\dev\win.files
 
+:InstallSoftware
+  cinst packages.config
+
 :UpdateSettings
   chdir c:\dev\win.files
 
@@ -28,9 +31,6 @@ set dotfiles=C:\dev\win.files
 :InstallVimPlugins
 ::  git clone https://github.com/vim-scripts/Align.git
   git clone https://github.com/jeffkreeftmeijer/vim-numbertoggle.git %UserProfile%\vimfiles\plugin\vim-numbertoggle
-
-:InstallSoftware
-  cinst packages.config
 
 goto :eof
 
