@@ -13,8 +13,9 @@ set sublime="C:\Program Files\Sublime Text 2\sublime_text.exe"
 :: Augment the Path
 ::  += local dev dir
 ::  += dotfiles dir
+::  += git dir
 :: --------------------
-path=%path%;C:\dev;%dotfiles%
+path=%path%;C:\dev;%dotfiles%;%ProgramFiles(x86)%\Git\cmd;
 
 :: --------------------
 :: Prompt Settings
