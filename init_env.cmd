@@ -33,7 +33,7 @@ doskey cs=cd $* $t dir /w
 doskey subl=%sublime% $*
 doskey fs=findstr /s /p /i /n $* *
 doskey ll=ls /a $*
-doskey cdd=cd C:\dev\win.files
+doskey devd=cd C:\dev\win.files
 
 :: Copy present working directory to the clipboard
 doskey cpwd=echo %cd% $b clip
@@ -45,6 +45,8 @@ doskey gap=git add -p
 doskey gaa=git add --all
 doskey gcm=git commit -m $*
 doskey gg=git status
+doskey gp=git push
+doskey gl=git pull
 
 :: --------------------
 :: Wizmo Aliases
