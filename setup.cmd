@@ -10,24 +10,24 @@ set dotfiles=C:\dev\win.files
   copy /y %dotfiles%\ConEmu.xml %AppData%\ConEmu.xml
 
   :: Console2
-  robocopy %dotfiles%\Console2 %AppData%\Console2 /MIR
+  robocopy %dotfiles%\Console2 %AppData%\Console2 /MIR /njh /njs /ndl /nc /ns
 
   :: Git
   copy /y %dotfiles%\.gitconfig %userprofile%\.gitconfig
 
   :: Vim
   copy /y %dotfiles%\_vimrc %userprofile%\_vimrc
-  robocopy %dotfiles%\vimfiles %userprofile%\vimfiles /MIR
+  robocopy %dotfiles%\vimfiles %userprofile%\vimfiles /MIR /njh /njs /ndl /nc /ns
 
 :ModifyRegistry
   regedit /S swap_caps_lock_and_control.reg
 
+:InstallVimPlugins
+::  git clone https://github.com/vim-scripts/Align.git
+  git clone https://github.com/jeffkreeftmeijer/vim-numbertoggle.git %UserProfile%\vimfiles\plugin\vim-numbertoggle
+
 :InstallSoftware
   cinst packages.config
-
-::InstallVimPlugins
-::  git clone https://github.com/vim-scripts/Align.git
-::  git clone https://github.com/jeffkreeftmeijer/vim-numbertoggle.git
 
 goto :eof
 

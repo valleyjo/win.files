@@ -96,11 +96,11 @@ inoremap jj <ESC>
 "nmap <leader>hl :let @/ = ""<CR>
 
 " color settings
-"set background=dark
+set background=dark
 "let g:solarized_termcolors = 256
 "let g:solarized_visibility = "high"
 "let g:solarized_contrast = "high"
-colorscheme solarized
+colorscheme ir_black
 
 " draw a gray line at column 80
 set colorcolumn=81
