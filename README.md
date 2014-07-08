@@ -7,7 +7,7 @@ This repository is a quick and easy way to customize your windows system. It's a
 
 Steps to a great setup:
 
-1. Open `[first_run.cmd](https://raw.githubusercontent.com/valleyjo/win.files/master/first_run.cmd)`
+1. Open [`first_run.cmd`](https://raw.githubusercontent.com/valleyjo/win.files/master/first_run.cmd)
 2. Save as first_run.cmd on your desktop
 3. Right click and run as administrator
 
