@@ -28,6 +28,6 @@
 :runSetup
   echo
   echo ----- Running Initial Setup -----
-  C:\dev\win.files\setup.cmd
+  cinst C:\dev\win.files\packages.config && C:\dev\win.files\setup.cmd
 
 :eof
