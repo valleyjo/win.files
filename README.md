@@ -1,9 +1,15 @@
-win.files
+Win.Files
 =========
 
-Dotfiles for windows
+Win Dot Files: Dotfiles for Windows
 
-This repository allows you to customize your windows system. It is designed to work out of the box and with one line. All you need to do is download and run `first_run.cmd`. It will take care of installing everything for you! It also swaps your control key and caps lock key.
+This repository is a quick and easy way to customize your windows system. It's a one liner! (almost...)
+
+Steps to a great setup:
+
+1. Open `[first_run.cmd](https://raw.githubusercontent.com/valleyjo/win.files/master/first_run.cmd)`
+2. Save as first_run.cmd on your desktop
+3. Right click and run as administrator
 
 Setup.cmd will take care of moving the settings files to their proper locations. You can run the setup.cmd file from time to time to ensure your various systems stay up to date.
 
@@ -24,9 +30,9 @@ Default software package:
 
 Also included:
 
-1. a nice .gitconfig (be sure to put your own name and email in it)
+1. .gitconfig (be sure to put your own name and email in it)
 2. ConEmu and Console2 settings
-3. a vimrc
-4. a .agignore
-5. a few vim plugins and colorschemes (default is solarized)
+3. _vimrc
+4. .agignore
+5. a few vim plugins and colorschemes
 

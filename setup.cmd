@@ -4,7 +4,7 @@ if not exist c:\dev\win.files\nul goto :error
 set dotfiles=C:\dev\win.files
 
 :InstallSoftware
-  cinst %dotfiles%\packages.config
+::  cinst %dotfiles%\packages.config
 
 :UpdateSettings
   chdir c:\dev\win.files
