@@ -11,6 +11,7 @@ set dotfiles=C:\dev\win.files
 
   :: Console2
   robocopy %dotfiles%\Console2 %AppData%\Console2 /MIR /njh /njs /ndl /nc /ns
+  robocopy %dotfiles%\Console2 %AppData%\Console /MIR /njh /njs /ndl /nc /ns
 
   :: Git
   copy /y %dotfiles%\.gitconfig %userprofile%\.gitconfig
