@@ -26,6 +26,7 @@ Default software package:
 7. f.lux
 8. dexpot
 9. Chocolatey
+10. LINQpad
 
 
 Also included:
