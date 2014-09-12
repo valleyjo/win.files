@@ -27,7 +27,7 @@ prompt $T$S$B$S$D$S$B$SDirectory$SStack:$S$+$_$P$G
 :: --------------------
 :: Aliases
 :: --------------------
-doskey cd=chdir $*
+doskey cd=pushd $*
 doskey ls=dir /w $*
 doskey cs=cd $* $t dir /w
 doskey subl=%sublime% $*
@@ -36,7 +36,7 @@ doskey ll=ls /a $*
 doskey devd=cd C:\dev\win.files
 
 :: Copy present working directory to the clipboard
-doskey cpwd=echo %cd% $b clip
+doskey ccd=echo %cd% $b clip
 
 :: --------------------
 :: Git Aliases
