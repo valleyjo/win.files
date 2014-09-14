@@ -33,7 +33,7 @@ doskey cs=cd $* $t dir /w
 doskey subl=%sublime% $*
 doskey fs=findstr /s /p /i /n $* *
 doskey ll=ls /a $*
-doskey devd=cd C:\dev\win.files
+doskey devd=cs C:\dev\win.files
 
 :: Copy present working directory to the clipboard
 doskey ccd=echo %cd% $b clip
