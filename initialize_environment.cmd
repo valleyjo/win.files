@@ -29,7 +29,7 @@ prompt $T$S$B$S$D$S$B$SDirectory$SStack:$S$+$_$P$G
 :: --------------------
 doskey cd=pushd $*
 doskey ls=dir /w $*
-doskey cs=cd $* $t dir /w
+doskey cs=pushd $* $t dir /w
 doskey subl=%sublime% $*
 doskey fs=findstr /s /p /i /n $* *
 doskey ll=ls /a $*
