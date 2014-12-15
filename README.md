@@ -15,19 +15,7 @@ Setup.cmd will take care of moving the settings files to their proper locations.
 
 NOTE: If you update your settings for an application, they must be copied from their actual location and put into this repo. Setup.cmd does not automatically pull updated setting files to this repo, it simply copies the settings files here into their respective locations.
 
-Default software package:
-
-1. ConEmu and Console2 windows terminal emulators
-2. Google Chrome
-3. vim
-4. fiddler2
-5. sublime text 2
-6. procexp
-7. f.lux
-8. dexpot
-9. Chocolatey
-10. LINQpad
-
+A bunch of software is automatically installed, view the packages file to see what is included.
 
 Also included:
 
@@ -36,4 +24,3 @@ Also included:
 3. _vimrc
 4. .agignore
 5. a few vim plugins and colorschemes
-
