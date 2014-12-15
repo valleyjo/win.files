@@ -35,7 +35,7 @@ doskey fs=findstr /s /p /i /n $* *
 doskey ll=ls /a $*
 doskey devd=cd C:\dev\win.files
 doskey t=type $*
-doskey v=vim
+doskey v=vim $*
 doskey o=explorer .
 
 :: Copy present working directory to the clipboard
