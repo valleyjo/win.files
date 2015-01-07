@@ -34,7 +34,9 @@ doskey subl=%sublime% $*
 doskey fs=findstr /s /p /i /n $* *
 doskey ll=ls /a $*
 doskey devd=cd C:\dev\win.files
+doskey t=type $*
 doskey v=vim $*
+doskey o=explorer .
 
 :: Copy present working directory to the clipboard
 doskey ccd=echo %cd% $b clip

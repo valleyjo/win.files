@@ -1,12 +1,13 @@
 @echo off
 
-if not exist c:\dev\win.files\nul goto :error
+if not exist c:\dev\win.files\nul goto :RepoMissingError
 set dotfiles=C:\dev\win.files
 
 :UpdateSettings
   chdir c:\dev\win.files
 
   :: ConEmu
+  :: prefer ethan brown config over my own customized config
   ::copy /y %dotfiles%\ConEmu.xml "C:\Program Files\ConEmu\ConEmu.xml"
 
   :: Console2
@@ -44,4 +45,3 @@ goto :eof
   echo Please run first_run.cmd first
 
 :eof
-
