@@ -28,7 +28,7 @@ set dotfiles=C:\dev\win.files
   robocopy %dotfiles%\Dexpot %AppData%\Dexpot /MIR /njh /njs /ndl /nc /ns
 
 :ModifyRegistry
-  regedit /S swap_caps_lock_and_control.reg
+  regedit /S caps_lock_to_control.reg
 
 :InstallVimPlugins
 ::  git clone https://github.com/vim-scripts/Align.git
