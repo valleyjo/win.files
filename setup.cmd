@@ -25,7 +25,7 @@ set dotfiles=C:\dev\win.files
   copy /y %dotfiles%\_vsvimrc %userprofile%\_vsvimrc
 
   :: Dexpot
-  robocopy %dotfiles%\Dexpot %AppData%\Dexpot /MIR /njh /njs /ndl /nc /ns
+  ::robocopy %dotfiles%\Dexpot %AppData%\Dexpot /MIR /njh /njs /ndl /nc /ns
 
 :ModifyRegistry
   regedit /S caps_lock_to_control.reg
