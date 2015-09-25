@@ -37,6 +37,7 @@ doskey devd=cd C:\dev\win.files
 doskey t=type $*
 doskey v=vim $*
 doskey o=explorer .
+doskey home=pushd %userprofile%
 
 :: Copy present working directory to the clipboard
 doskey ccd=echo %cd% $b clip
