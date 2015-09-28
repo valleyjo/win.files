@@ -28,7 +28,7 @@ prompt $T$S$B$S$D$S$B$SDirectory$SStack:$S$+$_$P$G
 :: Aliases
 :: --------------------
 doskey cd=pushd $*
-doskey ls=dir /w $*
+doskey ls=dir /d $*
 doskey cs=pushd $* $t dir /w
 doskey subl=%sublime% $*
 doskey fs=findstr /s /p /i /n $* *
