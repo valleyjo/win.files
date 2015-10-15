@@ -8,6 +8,7 @@ chdir C:\
 :: --------------------
 set dotfiles=C:\dev\win.files
 set sublime="C:\Program Files\Sublime Text 2\sublime_text.exe"
+set h=%userprofile%
 
 :: --------------------
 :: Augment the Path
@@ -29,7 +30,8 @@ prompt $T$S$B$S$D$S$B$SDirectory$SStack:$S$+$_$P$G
 :: --------------------
 doskey cd=pushd $*
 doskey ls=dir /d $*
-doskey cs=pushd $* $t dir /w
+doskey cs=pushd $* $t dir /d
+doskey b=popd $* $t dir /d
 doskey subl=%sublime% $*
 doskey fs=findstr /s /p /i /n $* *
 doskey ll=ls /a $*
