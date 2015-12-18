@@ -40,6 +40,7 @@ doskey t=type $*
 doskey v=vim $*
 doskey o=explorer .
 doskey home=pushd %userprofile%
+doskey h=pushd %userprofile%
 
 :: Copy present working directory to the clipboard
 doskey ccd=echo %cd% $b clip

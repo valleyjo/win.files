@@ -3,6 +3,8 @@
 if not exist c:\dev\win.files\nul goto :RepoMissingError
 set dotfiles=C:\dev\win.files
 
+setx h %userprofile%
+
 :UpdateSettings
   chdir c:\dev\win.files
 
