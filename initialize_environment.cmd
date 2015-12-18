@@ -8,6 +8,7 @@ chdir C:\
 :: --------------------
 set dotfiles=C:\dev\win.files
 set sublime="C:\Program Files\Sublime Text 2\sublime_text.exe"
+set pad="C:\Program Files (x86)\Notepad++\notepad++.exe"
 set h=%userprofile%
 
 :: --------------------
@@ -33,6 +34,7 @@ doskey ls=dir /d $*
 doskey cs=pushd $* $t dir /d
 doskey b=popd $* $t dir /d
 doskey subl=%sublime% $*
+doskey pad=%pad% $*
 doskey fs=findstr /s /p /i /n $* *
 doskey ll=ls /a $*
 doskey devd=cd C:\dev\win.files
