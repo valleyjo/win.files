@@ -1,5 +1,8 @@
 @echo off
 
+:setGlobalVariables
+setx h %userprofile%
+
 :instChocolatey
   if exist %ProgramData%\chocolatey\nul goto :instGit
   if exist C:\Chocolatey\nul goto :instGit
