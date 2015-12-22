@@ -3,18 +3,25 @@
 if not exist c:\dev\win.files\nul goto :RepoMissingError
 set dotfiles=C:\dev\win.files
 
+:: set global variables
 setx h %userprofile%
+setx x %userprofile%\desktop\
 
 :UpdateSettings
   chdir c:\dev\win.files
 
   :: ConEmu
   :: prefer ethan brown config over my own customized config
+  :: that config is installed via chocolatey packages
   ::copy /y %dotfiles%\ConEmu.xml "C:\Program Files\ConEmu\ConEmu.xml"
 
   :: Console2
   robocopy %dotfiles%\Console2 %AppData%\Console2 /MIR /njh /njs /ndl /nc /ns
   robocopy %dotfiles%\Console2 %AppData%\Console /MIR /njh /njs /ndl /nc /ns
+
+  :: Notepad++
+  copy /y %dotfiles%\notepad++\config.xml %AppData%\notepad++\
+  copy /y %dotfiles%\notepad++\obsidian.xml %AppData%\notepad++\themes\obsidian.xml
 
   :: Git
   copy /y %dotfiles%\.gitconfig %userprofile%\.gitconfig
