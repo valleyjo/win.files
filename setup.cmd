@@ -5,15 +5,13 @@ set dotfiles=C:\dev\win.files
 
 :: set global variables
 setx h %userprofile%
-setx x %userprofile%\desktop\
+setx d %userprofile%\desktop\
 
 :UpdateSettings
   chdir c:\dev\win.files
 
   :: ConEmu
-  :: prefer ethan brown config over my own customized config
-  :: that config is installed via a chocolatey package
-  ::copy /y %dotfiles%\ConEmu.xml "C:\Program Files\ConEmu\ConEmu.xml"
+  reg import ConEmu.reg
 
   :: Console2
   robocopy %dotfiles%\Console2 %AppData%\Console2 /MIR /njh /njs /ndl /nc /ns
