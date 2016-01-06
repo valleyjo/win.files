@@ -5,15 +5,13 @@ set dotfiles=C:\dev\win.files
 
 :: set global variables
 setx h %userprofile%
-setx x %userprofile%\desktop\
+setx d %userprofile%\desktop\
 
 :UpdateSettings
   chdir c:\dev\win.files
 
   :: ConEmu
-  :: prefer ethan brown config over my own customized config
-  :: that config is installed via chocolatey packages
-  ::copy /y %dotfiles%\ConEmu.xml "C:\Program Files\ConEmu\ConEmu.xml"
+  reg import ConEmu.reg
 
   :: Console2
   robocopy %dotfiles%\Console2 %AppData%\Console2 /MIR /njh /njs /ndl /nc /ns
@@ -21,7 +19,7 @@ setx x %userprofile%\desktop\
 
   :: Notepad++
   copy /y %dotfiles%\notepad++\config.xml %AppData%\notepad++\
-  copy /y %dotfiles%\notepad++\obsidian.xml %AppData%\notepad++\themes\obsidian.xml
+  copy /y %dotfiles%\notepad++\obsidian.xml %AppData%\notepad++\themes\
 
   :: Git
   copy /y %dotfiles%\.gitconfig %userprofile%\.gitconfig
@@ -33,15 +31,12 @@ setx x %userprofile%\desktop\
   :: VsVim
   copy /y %dotfiles%\_vsvimrc %userprofile%\_vsvimrc
 
-  :: Dexpot
-  ::robocopy %dotfiles%\Dexpot %AppData%\Dexpot /MIR /njh /njs /ndl /nc /ns
-
 :ModifyRegistry
   regedit /S caps_lock_to_control.reg
 
 :InstallVimPlugins
-::  git clone https://github.com/vim-scripts/Align.git
-  git clone https://github.com/jeffkreeftmeijer/vim-numbertoggle.git %UserProfile%\vimfiles\plugin\vim-numbertoggle
+:: git clone https://github.com/vim-scripts/Align.git
+  "c:\program files\git\cmd\git.exe" clone https://github.com/jeffkreeftmeijer/vim-numbertoggle.git %UserProfile%\vimfiles\plugin\vim-numbertoggle
 
 goto :eof
 

@@ -10,6 +10,7 @@ set dotfiles=C:\dev\win.files
 set sublime="C:\Program Files\Sublime Text 2\sublime_text.exe"
 set pad="C:\Program Files (x86)\Notepad++\notepad++.exe"
 set h=%userprofile%
+set d=%desktop%
 
 :: --------------------
 :: Augment the Path
@@ -43,6 +44,8 @@ doskey v=vim $*
 doskey o=explorer .
 doskey home=pushd %userprofile%
 doskey h=pushd %userprofile%
+doskey desktop=pushd %userprofile%\desktop\
+doskey d=pushd %userprofile%\desktop\
 
 :: Copy present working directory to the clipboard
 doskey ccd=echo %cd% $b clip

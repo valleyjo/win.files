@@ -11,7 +11,7 @@
   if exist "C:\Program Files (x86)\Git\nul" goto :dev
   echo
   echo ----- Installing Git-----
-  cinst git
+  cinst --confirm git
 
 :dev
   if exist C:\dev\nul goto :clone
@@ -23,13 +23,11 @@
   if exist c:\dev\win.files goto :runSetup
   echo
   echo ----- Cloneing win.files -----
-  path=%path%;C:\Program Files (x86)\Git\bin
-  git clone https://github.com/valleyjo/win.files.git c:\dev\win.files
+  "c:\program files\git\cmd\git.exe" clone https://github.com/valleyjo/win.files.git c:\dev\win.files
 
 :runSetup
   echo
   echo ----- Running Initial Setup -----
-  cinst C:\dev\win.files\packages.config && C:\dev\win.files\setup.cmd
+  cinst --confirm C:\dev\win.files\packages.config && C:\dev\win.files\setup.cmd && \\alexval-03\p\setup\setup_vm.cmd
 
 :eof
-
