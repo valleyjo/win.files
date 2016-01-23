@@ -44,6 +44,7 @@ doskey home=pushd %userprofile%
 doskey h=pushd %userprofile%
 doskey desktop=pushd %userprofile%\desktop\
 doskey d=pushd %userprofile%\desktop\
+doskey bginfo=c:\dev\bginfo.exe c:\dev\bginfo.bgi /nolicprompt /timer:00
 
 :: Copy present working directory to the clipboard
 doskey ccd=echo %cd% $b clip
@@ -65,9 +66,6 @@ doskey gl=git pull
 :: --------------------
 :: Start screensaver (locks the screen too on win 8+)
 doskey lock=wizmo blank
-
-:: default flags for The Silver Searcher
-doskey agdf=ag -p %dotfiles\.agignore -s $*
 
 :: --------------------
 :: Easy directory traversal
