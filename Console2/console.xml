@@ -91,52 +91,7 @@
 	</mouse>
 	<tabs>
 		<tab title="Console" use_default_icon="1">
-			<console shell="C:\windows\system32\cmd.exe /k C:\dev\win.files\init_env.cmd" init_dir="C:\Users\t-alvall" run_as_user="0" user=""/>
-			<cursor style="0" r="0" g="255" b="0"/>
-			<background type="0" r="0" g="0" b="0">
-				<image file="" relative="0" extend="0" position="0">
-					<tint opacity="0" r="0" g="0" b="0"/>
-				</image>
-			</background>
-		</tab>
-		<tab title="mainline-1" icon="D:\mainline\tools\coretools\icon.ico" use_default_icon="0">
-			<console shell="C:\windows\system32\cmd.exe /k set inetroot=d:\mainline&amp;d:\mainline\tools\path1st\myenv.cmd" init_dir="d:\mainline" run_as_user="0" user="Administrator"/>
-			<cursor style="0" r="0" g="255" b="0"/>
-			<background type="0" r="0" g="0" b="0">
-				<image file="" relative="0" extend="0" position="0">
-					<tint opacity="0" r="0" g="0" b="0"/>
-				</image>
-			</background>
-		</tab>
-		<tab title="mainline-2" icon="D:\mainline\tools\coretools\icon.ico" use_default_icon="0">
-			<console shell="C:\windows\system32\cmd.exe /k set inetroot=d:\mainline-1&amp;d:\mainline-1\tools\path1st\myenv.cmd" init_dir="d:\mainline-1" run_as_user="0" user="Administrator"/>
-			<cursor style="0" r="0" g="255" b="0"/>
-			<background type="0" r="0" g="0" b="0">
-				<image file="" relative="0" extend="0" position="0">
-					<tint opacity="0" r="0" g="0" b="0"/>
-				</image>
-			</background>
-		</tab>
-		<tab title="mainline-3" icon="D:\mainline\tools\coretools\icon.ico" use_default_icon="0">
-			<console shell="C:\windows\system32\cmd.exe /k set inetroot=d:\mainline-3&amp;d:\mainline-3\tools\path1st\myenv.cmd" init_dir="d:\mainline-3" run_as_user="0" user=""/>
-			<cursor style="0" r="0" g="255" b="0"/>
-			<background type="0" r="0" g="0" b="0">
-				<image file="" relative="0" extend="0" position="0">
-					<tint opacity="0" r="0" g="0" b="0"/>
-				</image>
-			</background>
-		</tab>
-		<tab title="mainline-4" icon="D:\mainline\tools\coretools\icon.ico" use_default_icon="0">
-			<console shell="C:\windows\system32\cmd.exe /k set inetroot=d:\mainline-4&amp;d:\mainline-4\tools\path1st\myenv.cmd" init_dir="d:\mainline-4" run_as_user="0" user=""/>
-			<cursor style="0" r="0" g="255" b="0"/>
-			<background type="0" r="0" g="0" b="0">
-				<image file="" relative="0" extend="0" position="0">
-					<tint opacity="0" r="0" g="0" b="0"/>
-				</image>
-			</background>
-		</tab>
-		<tab title="global_enums" icon="D:\mainline\tools\coretools\icon.ico" use_default_icon="0">
-			<console shell="C:\windows\system32\cmd.exe /k set inetroot=d:\global_enums&amp;d:\global_enums\tools\path1st\myenv.cmd" init_dir="d:\global_enums" run_as_user="0" user=""/>
+			<console shell="C:\windows\system32\cmd.exe /k C:\dev\win.files\initialize_environment.cmd" init_dir="c:\" run_as_user="0" user="Administrator"/>
 			<cursor style="0" r="0" g="255" b="0"/>
 			<background type="0" r="0" g="0" b="0">
 				<image file="" relative="0" extend="0" position="0">
