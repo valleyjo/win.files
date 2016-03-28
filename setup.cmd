@@ -31,8 +31,12 @@ setx d %userprofile%\desktop\
   :: VsVim
   copy /y %dotfiles%\_vsvimrc %userprofile%\_vsvimrc
 
+  :: gvim
+  copy /y %dotfiles%\_vsvimrc %userprofile%\_vsvimrc
+
 :ModifyRegistry
   regedit /S caps_lock_to_control.reg
+  regedit /S paint_desktop_version.reg
 
 :InstallVimPlugins
 :: git clone https://github.com/vim-scripts/Align.git
