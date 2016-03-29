@@ -22,7 +22,7 @@ setx d %userprofile%\desktop\
   copy /y %dotfiles%\notepad++\obsidian.xml %AppData%\notepad++\themes\
 
   :: Git
-  copy /y %dotfiles%\.gitconfig %userprofile%\.gitconfig
+  copy /y %dotfiles%\gitconfig.txt %userprofile%\.gitconfig
 
   :: Vim
   copy /y %dotfiles%\_vimrc %userprofile%\_vimrc
@@ -32,7 +32,7 @@ setx d %userprofile%\desktop\
   copy /y %dotfiles%\_vsvimrc %userprofile%\_vsvimrc
 
   :: gvim
-  copy /y %dotfiles%\_vsvimrc %userprofile%\_vsvimrc
+  copy /y %dotfiles%\.gvimrc %userprofile%\.gvimrc
 
 :ModifyRegistry
   regedit /S caps_lock_to_control.reg
