@@ -36,7 +36,7 @@ doskey subl=%sublime% $*
 doskey pad=%pad% $*
 doskey fs=findstr /s /p /i /n $* *
 doskey ll=ls /a $*
-doskey devd=cd C:\dev\win.files
+doskey devd=cd C:\dev\
 doskey t=type $*
 doskey v=vim $*
 doskey o=explorer .
@@ -47,7 +47,7 @@ doskey d=pushd %userprofile%\desktop\
 doskey bginfo=c:\dev\bginfo.exe c:\dev\bginfo.bgi /nolicprompt /timer:00
 
 :: Copy present working directory to the clipboard
-doskey ccd=echo %cd% $b clip
+doskey ccd=echo %cd% | clip
 
 :: --------------------
 :: Git Aliases
@@ -58,14 +58,6 @@ doskey gcm=git commit -m $*
 doskey gg=git status
 doskey gp=git push
 doskey gl=git pull
-
-:: --------------------
-:: Wizmo Aliases
-::  Wizmo is a sweet CLI tool for windows. It let's you do all kinda crazy things
-::  URL: https://www.grc.com/wizmo/wizmo.htm
-:: --------------------
-:: Start screensaver (locks the screen too on win 8+)
-doskey lock=wizmo blank
 
 :: --------------------
 :: Easy directory traversal
