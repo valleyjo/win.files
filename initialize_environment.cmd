@@ -28,9 +28,10 @@ prompt $T$S$B$S$D$S$B$SDirectory$SStack:$S$+$_$P$G
 :: --------------------
 :: Aliases
 :: --------------------
-doskey cd=pushd $*
+doskey cd=chdir $*
 doskey ls=dir /d $*
 doskey cs=pushd $* $t dir /d
+doskey p=pushd $*
 doskey b=popd $* $t dir /d
 doskey subl=%sublime% $*
 doskey pad=%pad% $*

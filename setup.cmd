@@ -11,7 +11,7 @@ setx d %userprofile%\desktop\
   chdir c:\dev\win.files
 
   :: ConEmu
-  reg import ConEmu.reg
+  ::reg import ConEmu.reg
 
   :: Console2
   robocopy %dotfiles%\Console2 %AppData%\Console2 /MIR /njh /njs /ndl /nc /ns
@@ -34,9 +34,13 @@ setx d %userprofile%\desktop\
   :: gvim
   copy /y %dotfiles%\.gvimrc %userprofile%\.gvimrc
 
+  :: sublime
+  copy /y %dotfiles%\Preferences.sublime-settings "%appdata%\Sublime Text 3\packages\user\preferences.sublime-settings"
+
 :ModifyRegistry
   regedit /S caps_lock_to_control.reg
   regedit /S paint_desktop_version.reg
+  regedit /S source_code_pro_in_console.reg
 
 :InstallVimPlugins
 :: git clone https://github.com/vim-scripts/Align.git
