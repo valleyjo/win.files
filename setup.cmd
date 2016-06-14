@@ -37,10 +37,19 @@ setx d %userprofile%\desktop\
   :: sublime
   copy /y %dotfiles%\Preferences.sublime-settings "%appdata%\Sublime Text 3\packages\user\preferences.sublime-settings"
 
+  :: source code pro fonts
+  copy /y %dotfiles%\source_code_pro\SourceCodePro-Bold.ttf %windir%\Fonts
+  copy /y %dotfiles%\source_code_pro\SourceCodePro-Black.ttf %windir%\Fonts
+  copy /y %dotfiles%\source_code_pro\SourceCodePro-Light.ttf %windir%\Fonts
+  copy /y %dotfiles%\source_code_pro\SourceCodePro-Medium.ttf %windir%\Fonts
+  copy /y %dotfiles%\source_code_pro\SourceCodePro-Regular.ttf %windir%\Fonts
+  copy /y %dotfiles%\source_code_pro\SourceCodePro-Semibold.ttf %windir%\Fonts
+  copy /y %dotfiles%\source_code_pro\SourceCodePro-ExtraLight.ttf %windir%\Fonts
+
 :ModifyRegistry
   regedit /S caps_lock_to_control.reg
   regedit /S paint_desktop_version.reg
-  regedit /S source_code_pro_in_console.reg
+  regedit /S source_code_pro.reg
 
 :InstallVimPlugins
 :: git clone https://github.com/vim-scripts/Align.git
