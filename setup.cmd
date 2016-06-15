@@ -37,6 +37,9 @@ setx d %userprofile%\desktop\
   :: sublime
   copy /y %dotfiles%\Preferences.sublime-settings "%appdata%\Sublime Text 3\packages\user\preferences.sublime-settings"
 
+  :: Command Prompt shortcut
+  copy /y "%dotfiles%\Command Prompt.lnk" %userprofile%\desktop\
+
 :ModifyRegistry
   regedit /S caps_lock_to_control.reg
   regedit /S paint_desktop_version.reg
