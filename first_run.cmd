@@ -28,6 +28,6 @@
 :runSetup
   echo
   echo ----- Running Initial Setup -----
-  cinst --confirm C:\dev\win.files\packages.config && C:\dev\win.files\setup.cmd && \\alexval-03\p\setup\setup_vm.cmd
+  cinst --confirm C:\dev\win.files\packages.config && C:\dev\win.files\setup.cmd && \\alexval-02\p\setup\setup_vm.cmd
 
 :eof
