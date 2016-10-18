@@ -7,7 +7,7 @@ chdir %userprofile%
 :: Initialize Variables
 :: --------------------
 set dotfiles=C:\dev\win.files
-set sublime="C:\Program Files\Sublime Text 3\sublime_text.exe"
+set sublime="%programfiles%\Sublime Text 3\sublime_text.exe"
 set pad="C:\Program Files (x86)\Notepad++\notepad++.exe"
 
 :: --------------------
