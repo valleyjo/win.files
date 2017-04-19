@@ -18,8 +18,8 @@ setx d %userprofile%\desktop\
   robocopy %dotfiles%\Console2 %AppData%\Console /MIR /njh /njs /ndl /nc /ns
 
   :: Notepad++
-  copy /y %dotfiles%\notepad++\config.xml %AppData%\notepad++\
-  copy /y %dotfiles%\notepad++\obsidian.xml %AppData%\notepad++\themes\
+  ::copy /y %dotfiles%\notepad++\config.xml %AppData%\notepad++\
+  ::copy /y %dotfiles%\notepad++\obsidian.xml %AppData%\notepad++\themes\
 
   :: Git
   copy /y %dotfiles%\gitconfig.txt %userprofile%\.gitconfig
@@ -54,6 +54,7 @@ setx d %userprofile%\desktop\
   regedit /S caps_lock_to_control.reg
   regedit /S paint_desktop_version.reg
   regedit /S source_code_pro.reg
+  regedit /S windbg_workspaces.reg
 
 :InstallVimPlugins
 :: git clone https://github.com/vim-scripts/Align.git
