@@ -55,6 +55,7 @@ setx d %userprofile%\desktop\
   regedit /S paint_desktop_version.reg
   regedit /S source_code_pro.reg
   regedit /S windbg_workspaces.reg
+  regedit /S key_repeat.reg
 
 :InstallVimPlugins
 :: git clone https://github.com/vim-scripts/Align.git
