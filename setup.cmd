@@ -49,6 +49,9 @@ setx d %userprofile%\desktop\
   copy /y %dotfiles%\source_code_pro\SourceCodePro-Semibold.ttf %windir%\Fonts
   copy /y %dotfiles%\source_code_pro\SourceCodePro-ExtraLight.ttf %windir%\Fonts
 
+:powershell
+  powershell -Command "new-item $profile -force -type File"
+  powershell -Command "cp %dotfiles%\Microsoft.PowerShell_profile.ps1 $profile"
 
 :ModifyRegistry
   regedit /S caps_lock_to_control.reg
