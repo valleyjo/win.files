@@ -40,6 +40,13 @@ setx d %userprofile%\desktop\
   :: Command Prompt shortcut
   copy /y "%dotfiles%\Command Prompt.lnk" %userprofile%\desktop\
 
+  :: VS Code setup
+  copy /y "%dotfiles%\vscode_settings.json" %appdata%\Code\User\Settings.json
+  start "install powershell" "%programfiles%\Microsoft VS Code\Code.exe" "--install-extension ms-vscode.powershell"
+  start "install cpptools" "%programfiles%\Microsoft VS Code\Code.exe" "--install-extension ms-vscode.cpptools"
+  start "install c#" "%programfiles%\Microsoft VS Code\Code.exe" "--install-extension ms-vscode.csharp"
+  start "install vscode_vim" "%programfiles%\Microsoft VS Code\Code.exe" "--install-extension vscodevim.vim"
+
   :: source code pro fonts
   copy /y %dotfiles%\source_code_pro\SourceCodePro-Bold.ttf %windir%\Fonts
   copy /y %dotfiles%\source_code_pro\SourceCodePro-Black.ttf %windir%\Fonts
