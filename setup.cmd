@@ -1,5 +1,7 @@
 @echo off
 
+net.exe session 1>NUL 2>NUL || (Echo This script requires elevated rights. & pause & Exit /b 1)
+
 if not exist c:\dev\win.files\nul goto :RepoMissingError
 set dotfiles=C:\dev\win.files
 

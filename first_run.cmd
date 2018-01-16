@@ -1,5 +1,7 @@
 @echo off
 
+net.exe session 1>NUL 2>NUL || (Echo This script requires elevated rights. & pause & Exit /b 1)
+
 :instChocolatey
   if exist %ProgramData%\chocolatey\nul goto :instGit
   if exist C:\Chocolatey\nul goto :instGit
