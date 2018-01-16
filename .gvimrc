@@ -1,1 +1,1 @@
-set guifont=Source_Code_Pro:h14:cANSI
+set guifont=Source_Code_Pro:h1:cANSI
