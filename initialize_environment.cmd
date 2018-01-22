@@ -1,5 +1,4 @@
 @echo off
-
 :: Startup directory
 chdir %userprofile%
 
@@ -58,7 +57,8 @@ doskey gaa=git add --all
 doskey gcm=git commit -m $*
 doskey gg=git status
 doskey gp=git push
-doskey gl=git pull
+doskey gl=git pull --prune
+doskey glog=git log --graph --pretty=format:"%%Cred%%h %%Creset %%an: %%s - %%Cgreen%%cr %%Creset" --abbrev-commit --date=relative
 
 :: --------------------
 :: Easy directory traversal
