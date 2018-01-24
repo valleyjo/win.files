@@ -59,6 +59,7 @@ setx d %userprofile%\desktop\
   copy /y %dotfiles%\source_code_pro\SourceCodePro-ExtraLight.ttf %windir%\Fonts
 
 :powershell
+  powershell -Command "Set-ExecutionPolicy Unrestricted"
   powershell -Command "new-item $profile -force -type File"
   powershell -Command "cp %dotfiles%\Microsoft.PowerShell_profile.ps1 $profile"
 
