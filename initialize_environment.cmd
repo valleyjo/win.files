@@ -47,7 +47,7 @@ doskey d=pushd %userprofile%\desktop\
 doskey bginfo=c:\dev\bginfo.exe c:\dev\bginfo.bgi /nolicprompt /timer:00
 
 :: Copy present working directory to the clipboard
-doskey ccd=echo %cd% | clip
+doskey ccd=powershell -c "(get-location).ToString()|Set-Clipboard"
 
 :: --------------------
 :: Git Aliases
