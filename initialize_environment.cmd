@@ -54,6 +54,7 @@ doskey gap=git add -p
 doskey gaa=git add --all
 doskey gcm=git commit -m $*
 doskey gg=git status
+doskey gb=git branch
 doskey gp=git push
 doskey gl=git pull --prune
 doskey glog=git log --graph --pretty=format:"%%Cred%%h %%Creset %%an: %%s - %%Cgreen%%cr %%Creset" --abbrev-commit --date=relative $*
