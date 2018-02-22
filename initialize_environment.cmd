@@ -1,6 +1,4 @@
 @echo off
-:: Startup directory
-chdir %userprofile%
 
 :: --------------------
 :: Initialize Variables
