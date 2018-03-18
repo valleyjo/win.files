@@ -5,8 +5,8 @@ function Convert-PathToVimStyle([string] $path) {
 }
 
 function Format-Path([string] $path) {
-   $loc = $path.Replace($HOME, '~')
    $loc = $path -ireplace 'd:\\one\\azure\\compute\\src', '%srcroot%'
+   $loc = $path.Replace($home, '~')
    # remove prefix for UNC paths
    $loc = $loc -replace '^[^:]+::', ''
    if ($loc -match "c:\\fcshell\\fcshell.release.\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\\lib\\net45" -Or
