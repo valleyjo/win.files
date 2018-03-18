@@ -1,9 +1,11 @@
 @echo off
 
+:: only run if we are in admin mode
 net.exe session 1>NUL 2>NUL || (Echo This script requires elevated rights. & pause & Exit /b 1)
 
 if not exist c:\dev\win.files\nul goto :RepoMissingError
 set dotfiles=C:\dev\win.files
+set powershellprofiledir=%userprofile%\documents\WindowsPowershell
 
 :: set global variables
 setx h %userprofile%
@@ -60,8 +62,10 @@ setx d %userprofile%\desktop\
 
 :powershell
   powershell -Command "Set-ExecutionPolicy Unrestricted -Force"
-  powershell -Command "new-item $profile -force -type File"
-  powershell -Command "cp %dotfiles%\Microsoft.PowerShell_profile.ps1 $profile"
+  :: make the directory where powershell profiles live then hardlink the profile
+  if not exist %powershellprofiledir% mkdir %userprofile%\Documents\WindowsPowershell
+  mklink /H %powershellprofiledir%\Microsoft.PowerShell_profile.ps1 %dotfiles%\Microsoft.PowerShell_profile.ps1
+  mklink /H %powershellprofiledir%\Microsoft.VSCode_profile.ps1 %dotfiles%\Microsoft.PowerShell_profile.ps1
 
 :ModifyRegistry
   regedit /S caps_lock_to_control.reg
