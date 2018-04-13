@@ -18,40 +18,41 @@ setx d %userprofile%\desktop\
   ::reg import ConEmu.reg
 
   :: Console2
-  robocopy %dotfiles%\Console2 %AppData%\Console2 /MIR /njh /njs /ndl /nc /ns
-  robocopy %dotfiles%\Console2 %AppData%\Console /MIR /njh /njs /ndl /nc /ns
+  mklink /J %appdata%\Console %dotfiles%\Console2
+  mklink /J %appdata%\Console2 %dotfiles%\Console2
 
   :: Notepad++
-  ::copy /y %dotfiles%\notepad++\config.xml %AppData%\notepad++\
-  ::copy /y %dotfiles%\notepad++\obsidian.xml %AppData%\notepad++\themes\
+  mklink /J %appdata%\notepad++ %dotfiles%\notepad++
 
   :: Git
-  copy /y %dotfiles%\gitconfig.txt %userprofile%\.gitconfig
+  mklink %h%\.gitconfig %dotfiles%\gitconfig.txt
 
   :: Vim
-  copy /y %dotfiles%\_vimrc %userprofile%\_vimrc
-  robocopy %dotfiles%\vimfiles %userprofile%\vimfiles /MIR /njh /njs /ndl /nc /ns
+  mklink %h%\_vimrc %dotfiles%\_vimrc
+  mklink /J %h%\vimfiles %dotfiles%\vimfiles
 
   :: VsVim
-  copy /y %dotfiles%\_vsvimrc %userprofile%\_vsvimrc
+  mklink %h%\_vsvimrc %dotfiles%\_vsvimrc
 
   :: gvim
-  copy /y %dotfiles%\.gvimrc %userprofile%\.gvimrc
+  mklink %h%\.gvimrc %dotfiles\.gvimrc
 
   :: sublime
-  copy /y %dotfiles%\Preferences.sublime-settings "%appdata%\Sublime Text 3\packages\user\preferences.sublime-settings"
+  if not exist "%appdata%\Sublime Text 3\packages\user\" mkdir "%appdata%\Sublime Text 3\packages\user"
+  mklink "%appdata%\Sublime Text 3\packages\user\preferences.sublime-settings" %dotfiles%\Preferences.sublime-settings 
 
-  :: Command Prompt shortcut
-  copy /y "%dotfiles%\Command Prompt.lnk" %userprofile%\desktop\
+  :: Command Prompt shortcut (symlink-ing a .lnk is weird so do a regular copy)
+  copy /y "%dotfiles%\Command Prompt.lnk" %h%\desktop\
 
   :: VS Code setup
-  copy /y "%dotfiles%\vscode_settings.json" %appdata%\Code\User\Settings.json
-  start "install powershell" "%programfiles%\Microsoft VS Code\Code.exe" "--install-extension ms-vscode.powershell"
-  start "install cpptools" "%programfiles%\Microsoft VS Code\Code.exe" "--install-extension ms-vscode.cpptools"
-  start "install c#" "%programfiles%\Microsoft VS Code\Code.exe" "--install-extension ms-vscode.csharp"
-  start "install vscode_vim" "%programfiles%\Microsoft VS Code\Code.exe" "--install-extension vscodevim.vim"
+  if not exist %appdata%\Code\User mkdir %appdata%\Code\User
+  mklink %appdata%\Code\User\Settings.json %dotfiles%\vscode_settings.json
+  code "--install-extension ms-vscode.powershell"
+  code "--install-extension ms-vscode.cpptools"
+  code "--install-extension ms-vscode.csharp"
+  code "--install-extension vscodevim.vim"
 
-  :: source code pro fonts
+  :: source code pro fonts (don't expect these to change so we can leave a copy here)
   copy /y %dotfiles%\source_code_pro\SourceCodePro-Bold.ttf %windir%\Fonts
   copy /y %dotfiles%\source_code_pro\SourceCodePro-Black.ttf %windir%\Fonts
   copy /y %dotfiles%\source_code_pro\SourceCodePro-Light.ttf %windir%\Fonts
@@ -60,13 +61,6 @@ setx d %userprofile%\desktop\
   copy /y %dotfiles%\source_code_pro\SourceCodePro-Semibold.ttf %windir%\Fonts
   copy /y %dotfiles%\source_code_pro\SourceCodePro-ExtraLight.ttf %windir%\Fonts
 
-:powershell
-  powershell -Command "Set-ExecutionPolicy Unrestricted -Force"
-  :: make the directory where powershell profiles live then hardlink the profile
-  if not exist %powershellprofiledir% mkdir %userprofile%\Documents\WindowsPowershell
-  mklink /H %powershellprofiledir%\Microsoft.PowerShell_profile.ps1 %dotfiles%\Microsoft.PowerShell_profile.ps1
-  mklink /H %powershellprofiledir%\Microsoft.VSCode_profile.ps1 %dotfiles%\Microsoft.PowerShell_profile.ps1
-
 :ModifyRegistry
   regedit /S caps_lock_to_control.reg
   regedit /S paint_desktop_version.reg
@@ -74,9 +68,16 @@ setx d %userprofile%\desktop\
   regedit /S windbg_workspaces.reg
   regedit /S key_repeat.reg
 
+:powershell
+  powershell -Command "Set-ExecutionPolicy Unrestricted -Force"
+  :: make the directory where powershell profiles live then hardlink the profile
+  if not exist %powershellprofiledir% mkdir %powershellprofiledir%
+  mklink /H %powershellprofiledir%\Microsoft.PowerShell_profile.ps1 %dotfiles%\Microsoft.PowerShell_profile.ps1
+  mklink /H %powershellprofiledir%\Microsoft.VSCode_profile.ps1 %dotfiles%\Microsoft.PowerShell_profile.ps1
+
 :InstallVimPlugins
 :: git clone https://github.com/vim-scripts/Align.git
-  "c:\program files\git\cmd\git.exe" clone https://github.com/jeffkreeftmeijer/vim-numbertoggle.git %UserProfile%\vimfiles\plugin\vim-numbertoggle
+:: "c:\program files\git\cmd\git.exe" clone https://github.com/jeffkreeftmeijer/vim-numbertoggle.git %UserProfile%\vimfiles\plugin\vim-numbertoggle
 
 goto :eof
 

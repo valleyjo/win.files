@@ -30,6 +30,7 @@ net.exe session 1>NUL 2>NUL || (Echo This script requires elevated rights. & pau
 :runSetup
   echo
   echo ----- Running Initial Setup -----
-  cinst --confirm C:\dev\win.files\packages.config && C:\dev\win.files\setup.cmd
+  cinst --confirm C:\dev\win.files\packages.config
+  C:\dev\win.files\setup.cmd
 
 :eof

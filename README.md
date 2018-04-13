@@ -3,17 +3,17 @@ Win.Files
 
 Win Dot Files: Dotfiles for Windows
 
-This repository is a quick and easy way to customize your windows system. It's a one liner! (almost...)
+This repository is a quick and easy way to customize your windows system.
 
 Steps to a great setup:
 
-1. Open [`first_run.cmd`](https://raw.githubusercontent.com/valleyjo/win.files/master/first_run.cmd)
-2. Save as first_run.cmd on your desktop
+1. Open [`bootstrap.cmd`](https://raw.githubusercontent.com/valleyjo/win.files/master/bootstrap.cmd)
+2. Save as bootstrap.cmd on your desktop
 3. Right click and run as administrator
 
-Setup.cmd will take care of moving the settings files to their proper locations. You can run the setup.cmd file from time to time to ensure your various systems stay up to date.
+Bootstrapping will symlink individual setup files and create directory junctions for directories. This ensures that changes made will immediatly be available when you sync your repo.
 
-NOTE: If you update your settings for an application, they must be copied from their actual location and put into this repo. Setup.cmd does not automatically pull updated setting files to this repo, it simply copies the settings files here into their respective locations.
+NOTE: Remember that if you changes setting files from the applications themselves you are changing the files in this repository.
 
 A bunch of software is automatically installed, view the packages file to see what is included.
 
@@ -23,4 +23,4 @@ Also included:
 2. ConEmu and Console2 settings
 3. _vimrc
 4. .agignore
-5. a few vim plugins and colorschemes
+5. a few vim colorschemes
