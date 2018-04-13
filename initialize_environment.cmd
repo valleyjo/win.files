@@ -37,6 +37,7 @@ doskey dirs=dir /s /b $*
 doskey agp=ag -p %dotfiles%\.agignore $*
 doskey ll=ls /a $*
 doskey devd=cd C:\dev\
+doskey dfd=cd %dotfiles%
 doskey t=type $*
 doskey v=vim $*
 doskey o=explorer .
