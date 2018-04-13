@@ -100,7 +100,6 @@ set background=dark
 "let g:solarized_termcolors = 256
 "let g:solarized_visibility = "high"
 "let g:solarized_contrast = "high"
-colorscheme ir_black
 
 " draw a gray line at column 80
 set colorcolumn=81
