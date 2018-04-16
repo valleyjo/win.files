@@ -1,3 +1,14 @@
+$env:dotfiles = "c:\dev\win.files"
+$env:sublime = "%programfiles%\Sublime Text 3\sublime_text.exe"
+$env:pad = "C:\Program Files (x86)\Notepad++\notepad++.exe"
+$env:path += ";c:\dev;"
+$env:path += $env:dotfiles
+
+Set-Alias -Name "subl" -Value $env:sublime
+Set-Alias -Name "pad" -Value $env:pad
+Function devd { Set-Location -Path 'c:\dev' }
+Function dfd { Set-Location -Path $env:dotfiles }
+
 function Convert-PathToVimStyle([string] $path) {
    # make path shorter like tabs in Vim,
    # handle paths starting with \\ and . correctly

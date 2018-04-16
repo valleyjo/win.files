@@ -1,15 +1,3 @@
 {
-	"animation_enabled": false,
-	"caret_style": "solid",
-	"draw_white_space": "all",
-	"font_face": "Source Code Pro",
-	"font_size": 11,
-	"highlight_line": true,
-	"rulers": [ 80,	120 ],
-	"show_minimap": false,
-	"translate_tabs_to_spaces": true,
-	"tree_animation_enabled": false,
-	
- 	//"trim_trailing_white_space_on_save": true,
-	//"ensure_newline_at_eof_on_save": true,
+	"theme": "Adaptive.sublime-theme"
 }
