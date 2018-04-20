@@ -47,10 +47,10 @@ setx d %userprofile%\desktop\
   :: VS Code setup
   if not exist %appdata%\Code\User mkdir %appdata%\Code\User
   mklink %appdata%\Code\User\Settings.json %dotfiles%\vscode_settings.json
-  code "--install-extension ms-vscode.powershell"
-  code "--install-extension ms-vscode.cpptools"
-  code "--install-extension ms-vscode.csharp"
-  code "--install-extension vscodevim.vim"
+  "%programfiles%\Microsoft VS Code\bin\code.cmd" --install-extension ms-vscode.powershell
+  "%programfiles%\Microsoft VS Code\bin\code.cmd" --install-extension ms-vscode.cpptools
+  "%programfiles%\Microsoft VS Code\bin\code.cmd" --install-extension ms-vscode.csharp
+  "%programfiles%\Microsoft VS Code\bin\code.cmd" --install-extension vscodevim.vim
 
   :: source code pro fonts (don't expect these to change so we can leave a copy here)
   copy /y %dotfiles%\source_code_pro\SourceCodePro-Bold.ttf %windir%\Fonts
@@ -87,6 +87,6 @@ goto :eof
   echo ---------- Error ----------
   color
   echo win.files repo not found (c:\dev\win.files)
-  echo Please run first_run.cmd first
+  echo Please run bootstrap.cmd first
 
 :eof
