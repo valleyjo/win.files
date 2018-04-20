@@ -44,14 +44,6 @@ setx d %userprofile%\desktop\
   :: Command Prompt shortcut (symlink-ing a .lnk is weird so do a regular copy)
   copy /y "%dotfiles%\Command Prompt.lnk" %h%\desktop\
 
-  :: VS Code setup
-  if not exist %appdata%\Code\User mkdir %appdata%\Code\User
-  mklink %appdata%\Code\User\Settings.json %dotfiles%\vscode_settings.json
-  "%programfiles%\Microsoft VS Code\bin\code.cmd" --install-extension ms-vscode.powershell
-  "%programfiles%\Microsoft VS Code\bin\code.cmd" --install-extension ms-vscode.cpptools
-  "%programfiles%\Microsoft VS Code\bin\code.cmd" --install-extension ms-vscode.csharp
-  "%programfiles%\Microsoft VS Code\bin\code.cmd" --install-extension vscodevim.vim
-
   :: source code pro fonts (don't expect these to change so we can leave a copy here)
   copy /y %dotfiles%\source_code_pro\SourceCodePro-Bold.ttf %windir%\Fonts
   copy /y %dotfiles%\source_code_pro\SourceCodePro-Black.ttf %windir%\Fonts
@@ -78,6 +70,13 @@ setx d %userprofile%\desktop\
 :InstallVimPlugins
 :: git clone https://github.com/vim-scripts/Align.git
 :: "c:\program files\git\cmd\git.exe" clone https://github.com/jeffkreeftmeijer/vim-numbertoggle.git %UserProfile%\vimfiles\plugin\vim-numbertoggle
+
+:: VS Code setup
+:: Running the extension install commands seems to exit the script for some reason, so put it at the end rather than understanding and fixing the root cause
+  if not exist %appdata%\Code\User mkdir %appdata%\Code\User
+  mklink %appdata%\Code\User\Settings.json %dotfiles%\vscode_settings.json
+  "%programfiles%\Microsoft VS Code\bin\code.cmd" --install-extension ms-vscode.powershell && "%programfiles%\Microsoft VS Code\bin\code.cmd" --install-extension ms-vscode.cpptools && "%programfiles%\Microsoft VS Code\bin\code.cmd" --install-extension ms-vscode.csharp && "%programfiles%\Microsoft VS Code\bin\code.cmd" --install-extension vscodevim.vim
+
 
 goto :eof
 
