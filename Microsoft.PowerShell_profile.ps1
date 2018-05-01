@@ -9,6 +9,12 @@ Set-Alias -Name "pad" -Value $env:pad
 Function devd { Set-Location -Path 'c:\dev' }
 Function dfd { Set-Location -Path $env:dotfiles }
 
+function q() {
+    $str = $args -join " ";
+    $str = [uri]::EscapeDataString($str);
+    Start-Process "http://bing.com/?q=$($str)";
+}
+
 function Convert-PathToVimStyle([string] $path) {
    # make path shorter like tabs in Vim,
    # handle paths starting with \\ and . correctly
