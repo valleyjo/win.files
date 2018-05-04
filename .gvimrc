@@ -1,1 +1,5 @@
-set guifont=Source_Code_Pro:h11:cANSI
+set guifont=Source_Code_Pro:h9:cANSI
+set relativenumber
+set guioptions-=T  "toolbar
+colorscheme slate
+set lines=50 columns=120

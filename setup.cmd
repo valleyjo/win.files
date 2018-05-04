@@ -35,7 +35,7 @@ setx d %userprofile%\desktop\
   mklink %h%\_vsvimrc %dotfiles%\_vsvimrc
 
   :: gvim
-  mklink %h%\.gvimrc %dotfiles\.gvimrc
+  mklink %h%\.gvimrc %dotfiles%\.gvimrc
 
   :: sublime
   if not exist "%appdata%\Sublime Text 3\packages\user\" mkdir "%appdata%\Sublime Text 3\packages\user"
