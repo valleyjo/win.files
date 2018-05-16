@@ -26,11 +26,7 @@ function Format-Path([string] $path) {
    $loc = $path.Replace($home, '~')
    # remove prefix for UNC paths
    $loc = $loc -replace '^[^:]+::', ''
-   if ($loc -match "c:\\fcshell\\fcshell.release.\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\\lib\\net45" -Or
-       $loc -match "c:\\fcshell\\fcshell.release.\d{1,3}\.\d{1,3}\.\d{1,3}\\lib\\net45")
-   {
-       $loc = "FcShell"
-   }
+   if ($ver -ne $null) { $loc = $ver; }
    return $loc
 }
 
