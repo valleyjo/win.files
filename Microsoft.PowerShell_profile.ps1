@@ -21,6 +21,13 @@ function Convert-PathToVimStyle([string] $path) {
    return ($path -replace '\\(\.?)([^\\])[^\\]*(?=\\)','\$1$2')
 }
 
+Function ts([string]$machine, [switch]$multimon) {
+    $commandStr = "mstsc /v alexval-$($machine)"
+    if ($multimon) { $commandStr += " /multimon" }
+    else { $commandStr += " /f" } # default is full screen
+    Invoke-Expression -Command $commandStr
+}
+
 function Format-Path([string] $path) {
    $loc = $path -ireplace 'd:\\one\\azure\\compute\\src', '%srcroot%'
    $loc = $path.Replace($home, '~')
