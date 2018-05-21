@@ -6,8 +6,12 @@ $env:path += $env:dotfiles
 
 Set-Alias -Name "subl" -Value $env:sublime
 Set-Alias -Name "pad" -Value $env:pad
+# single line functions that servce more as aliases
 Function devd { Set-Location -Path 'c:\dev' }
 Function dfd { Set-Location -Path $env:dotfiles }
+Function d { Set-Location -Path $env:d }
+Function ~ { Set-Location -Path ~ }
+Function o { Start-Process -Path . }
 
 function q() {
     $str = $args -join " ";
