@@ -43,6 +43,7 @@ setx d %userprofile%\desktop\
 
   :: Command Prompt shortcut (symlink-ing a .lnk is weird so do a regular copy)
   copy /y "%dotfiles%\Command Prompt.lnk" %h%\desktop\
+  copy /y "%dotfiles%\Windows Powershell.lnk" %h%\desktop\
 
   :: source code pro fonts (don't expect these to change so we can leave a copy here)
   copy /y %dotfiles%\source_code_pro\SourceCodePro-Bold.ttf %windir%\Fonts
