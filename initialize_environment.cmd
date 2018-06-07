@@ -59,6 +59,7 @@ doskey gcm=git commit -m $*
 doskey gg=git status
 doskey gb=git branch
 doskey gp=git push
+doskey gpu=git push origin -u
 doskey gl=git pull --prune
 doskey glog=git log --graph --pretty=format:"%%Cred%%h %%Creset %%an: %%s - %%Cgreen%%cr %%Creset" --abbrev-commit --date=relative $*
 doskey gloga=git log --graph --pretty=format:"%%Cred%%h %%Creset %%an: %%s - %%Cgreen%%cr %%Creset" --abbrev-commit --date=relative --author=$*
