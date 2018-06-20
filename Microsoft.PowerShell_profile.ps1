@@ -4,6 +4,8 @@ $env:pad = "C:\Program Files (x86)\Notepad++\notepad++.exe"
 $env:path += ";c:\dev;"
 $env:path += $env:dotfiles
 
+. $env:dotfiles\functions.ps1
+
 Set-Alias -Name "subl" -Value $env:sublime
 Set-Alias -Name "pad" -Value $env:pad
 # single line functions that servce more as aliases
