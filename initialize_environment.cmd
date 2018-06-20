@@ -56,6 +56,7 @@ doskey ccd=powershell -c "(get-location).ToString()|Set-Clipboard"
 doskey gap=git add -p
 doskey gaa=git add --all
 doskey gcm=git commit -m $*
+doskey gcp=git co -b $* $T git push --set-upstream origin $*
 doskey gg=git status
 doskey gb=git branch
 doskey gp=git push
