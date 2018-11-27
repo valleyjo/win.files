@@ -1,38 +1,36 @@
-# Sample gitconfig
-#
-
 [hub]
-        protocol = https
+	protocol = https
 [user]
-        name = Alex Vallejo
-        email = vallejo.alex@gmail.com
-[credential]
-        helper = GIT_CREDENTIAL_HELPER
+	name = Alex Vallejo
+	email = vallejo.alex@gmail.com
 [alias]
-        cm = commit -m
-        co = checkout
-        p = pull
+	cm = commit -m
+	co = checkout
+	p = pull
+	aa = add --all
+	ap = add -p
 [color]
-        diff = auto
-        status = auto
-        branch = auto
-        ui = true
+	diff = auto
+	status = auto
+	branch = auto
+	ui = true
 [core]
-        excludesfile = C:/dev/.gitignore
-        editor = notepad
+	excludesfile = C:/dev/.gitignore
+	editor = notepad
 [apply]
-        whitespace = nowarn
+	whitespace = nowarn
 [help]
-        autocorrect = 1
+	autocorrect = 1
 [push]
-        default = current
+	default = current
 [merge]
-    tool = kdiff3
-[mergetool "kdiff3"]
-    path = C:/Program Files/KDiff3/kdiff3.exe
+    tool = bc
+[mergetool "bc"]
+    path = c:/Program Files/Beyond Compare 4/bcomp.exe
     trustExitCode = false
 [diff]
-    guitool = kdiff3
-[difftool "kdiff3"]
-    path = C:/Program Files/KDiff3/kdiff3.exe
-    trustExitCode = false
+	promt = false
+    guitool = bc
+	tool = bc
+[difftool "bc"]
+	path = c:/Program Files/Beyond Compare 4/bcomp.exe
