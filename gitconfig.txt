@@ -24,13 +24,15 @@
 [push]
 	default = current
 [merge]
-    tool = bc
+	tool = bc
 [mergetool "bc"]
-    path = c:/Program Files/Beyond Compare 4/bcomp.exe
-    trustExitCode = false
+	path = c:/Program Files/Beyond Compare 4/bcomp.exe
+	trustExitCode = false
 [diff]
 	promt = false
-    guitool = bc
+	guitool = bc
 	tool = bc
 [difftool "bc"]
 	path = c:/Program Files/Beyond Compare 4/bcomp.exe
+[difftool]
+	prompt = false
