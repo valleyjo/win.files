@@ -76,7 +76,10 @@ setx d %userprofile%\desktop\
 :: Running the extension install commands seems to exit the script for some reason, so put it at the end rather than understanding and fixing the root cause
   if not exist %appdata%\Code\User mkdir %appdata%\Code\User
   mklink %appdata%\Code\User\Settings.json %dotfiles%\vscode_settings.json
-  "%programfiles%\Microsoft VS Code\bin\code.cmd" --install-extension ms-vscode.powershell && "%programfiles%\Microsoft VS Code\bin\code.cmd" --install-extension ms-vscode.cpptools && "%programfiles%\Microsoft VS Code\bin\code.cmd" --install-extension ms-vscode.csharp && "%programfiles%\Microsoft VS Code\bin\code.cmd" --install-extension vscodevim.vim
+  call "%programfiles%\Microsoft VS Code\bin\code.cmd" --install-extension ms-vscode.powershell
+  call "%programfiles%\Microsoft VS Code\bin\code.cmd" --install-extension ms-vscode.cpptools
+  call "%programfiles%\Microsoft VS Code\bin\code.cmd" --install-extension ms-vscode.csharp
+  call "%programfiles%\Microsoft VS Code\bin\code.cmd" --install-extension vscodevim.vim
 
 
 goto :eof
