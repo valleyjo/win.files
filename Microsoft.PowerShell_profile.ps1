@@ -12,6 +12,10 @@ Function dfd { Set-Location -Path $env:dotfiles }
 Function d { Set-Location -path $env:d }
 Function ~ { Set-Location -path ~ }
 Function o { Start-Process -path . }
+Function . { Set-Location -path .. }
+Function .. { Set-Location -path ..\.. }
+Function ... { Set-Location -path ..\..\.. }
+Function .... { Set-Location -path ..\..\..\.. }
 
 Function psdir {
     $psdir = ""
