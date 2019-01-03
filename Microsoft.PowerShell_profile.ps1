@@ -11,7 +11,7 @@ Function devd { Set-Location -Path $env:HOMEDRIVE\dev }
 Function dfd { Set-Location -Path $env:dotfiles }
 Function d { Set-Location -path $env:d }
 Function ~ { Set-Location -path ~ }
-Function o { Start-Process -path . }
+Function o { Explorer . }
 Function . { Set-Location -path .. }
 Function .. { Set-Location -path ..\.. }
 Function ... { Set-Location -path ..\..\.. }

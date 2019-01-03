@@ -53,14 +53,14 @@ doskey ccd=powershell -c "(get-location).ToString()|Set-Clipboard"
 :: --------------------
 :: Git Aliases
 :: --------------------
-doskey gap=git add -p
+doskey gap=git add -p $*
 doskey gaa=git add --all
 doskey gcm=git commit -m $*
 doskey gcp=git co -b $* $T git push --set-upstream origin $*
-doskey gg=git status
-doskey gb=git branch
-doskey gp=git push
-doskey gl=git pull --prune
+doskey gg=git status $*
+doskey gb=git branch $*
+doskey gp=git push $*
+doskey gl=git pull --prune $*
 doskey gpu=powershell -c "$s = git rev-parse --abbrev-ref HEAD; git push --set-upstream origin $s"
 doskey gdm=powershell -c "$s = git rev-parse --abbrev-ref HEAD; git difftool --dir-diff master...$s"
 doskey glog=git log --graph --pretty=format:"%%Cred%%h %%Creset %%an: %%s - %%Cgreen%%cr %%Creset" --abbrev-commit --date=relative $*
