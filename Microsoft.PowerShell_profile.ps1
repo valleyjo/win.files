@@ -11,6 +11,7 @@ Function devd { Set-Location -Path $env:HOMEDRIVE\dev }
 Function dfd { Set-Location -Path $env:dotfiles }
 Function d { Set-Location -path $env:d }
 Function ~ { Set-Location -path ~ }
+Function reload {. $profile}
 Function o { Explorer . }
 Function . { Set-Location -path .. }
 Function .. { Set-Location -path ..\.. }
@@ -49,64 +50,74 @@ Function Open-ExplorerWindowForRunningProcess {
 }
 
 function ts {
-   Param(
-       [Parameter(mandatory=$true)][ValidateNotNullOrEmpty()][string] $node,
-       [Switch] $multimon,
-       [string] $dimensions = [string]::Empty,
-       [ValidateRange(1,100)][byte] $percentSize = 0, # % must be (0-100]
-       [uint16] $width = 0,
-       [uint16] $height = 0
-   )
+    Param(
+        [Parameter(mandatory=$true)][ValidateNotNullOrEmpty()][string] $node,
+        [Switch] $multimon,
+        [string] $dimensions = [string]::Empty,
+        [ValidateRange(1,100)][byte] $percentSize = 0, # % must be (0-100]
+        [uint16] $width = 0,
+        [uint16] $height = 0,
+        [uint16] $pingAttempts = [uint16]::MaxValue
+    )
+    $machineName = "alexval-$node"
+    Write-Title "Starting Terminal Services Session to $machineName"
+    $r = Test-NetConnection $machineName
+    
+    for ($i = 0; $i -lt $pingAttempts -and !$r.PingSucceeded; $i++) {
+        $r = Test-NetConnection $machineName
+    }
 
-   $r = Test-NetConnection "alexval-$node"
-   if (!$r.PingSucceeded) { return }
+    if (!$r.PingSucceeded) {
+        Write-Host "Cannot connect to $machineName after $pingAttempts attempts. Exiting..."
+        return
+    }
 
-   $argList = "/v", "alexval-$node"
-   [float]$percentSize = $percentSize / 100
+    $argList = "/v", $machineName
+    [float]$percentSize = $percentSize / 100
 
-   if ($percentSize -gt 0) {
-       $obj = Get-WmiObject -Class Win32_DesktopMonitor
-       $obj = Get-WmiObject -Class Win32_VideoController
+    if ($percentSize -gt 0) {
+        $obj = Get-WmiObject -Class Win32_DesktopMonitor
+        $obj = Get-WmiObject -Class Win32_VideoController
 
-       try {
-           # width % coverage is working area of primary monitor - border width
-           # multiply by two because % coverage is for the full rect not just one dimension
-           $width = [System.Windows.Forms.SystemInformation]::WorkingArea.Width
-           $width -= ([System.Windows.Forms.SystemInformation]::BorderSize.Width * 2) # border on each side
-           $width *= $percentSize
+        try {
+            # width % coverage is working area of primary monitor - border width
+            # multiply by two because % coverage is for the full rect not just one dimension
+            $width = [System.Windows.Forms.SystemInformation]::WorkingArea.Width
+            $width -= ([System.Windows.Forms.SystemInformation]::BorderSize.Width * 2) # border on each side
+            $width *= $percentSize
 
-           # height % coverage is working area of primary monitor - border width - title bar height
-           $height = [System.Windows.Forms.SystemInformation]::WorkingArea.Height
-           $height -= ([System.Windows.Forms.SystemInformation]::BorderSize.Height * 2) # border one each side
-           $height -= [System.Windows.Forms.SystemInformation]::CaptionHeight
-           $height *= $percentSize
-           "Computed resolution of $width x $height"
-       } catch {
-           Write-Host "Cannot calculate percent size. Exiting..."
-           return
-       }
-   } elseif (![string]::IsNullOrEmpty($dimensions)) {
-       $values = $dimensions.Split('x');
-       if ($values.Length -ne 2) {
-           Write-Host "Invalid format for -dimensions. Expected something like: 1920x1080. Exiting..."
-           return
-       }
-       $width = [uint16]::Parse($values[0])
-       $height = [uint16]::Parse($values[1])
-   }
+            # height % coverage is working area of primary monitor - border width - title bar height
+            $height = [System.Windows.Forms.SystemInformation]::WorkingArea.Height
+            $height -= ([System.Windows.Forms.SystemInformation]::BorderSize.Height * 2) # border one each side
+            $height -= [System.Windows.Forms.SystemInformation]::CaptionHeight
+            $height *= $percentSize
+            "Computed resolution of $width x $height"
+        } catch {
+            Write-Host "Cannot calculate percent size. Exiting..."
+            return
+        }
+    } elseif (![string]::IsNullOrEmpty($dimensions)) {
+        $values = $dimensions.Split('x');
+        if ($values.Length -ne 2) {
+            Write-Host "Invalid format for -dimensions. Expected something like: 1920x1080. Exiting..."
+            return
+        }
+        $width = [uint16]::Parse($values[0])
+        $height = [uint16]::Parse($values[1])
+    }
 
-   #fullscreen, multi-monitor
-   if ($multimon) {
-       $argList += "/multimon"
-   # custom size. Can be set progrmatically with the percent coverage input
-   } elseif (($width -gt 0) -and ($height -gt 0)) {
-       $argList += @("/w:$width","/h:$height")
-   #fullscreen, one monitor
-   } else {
-       $argList += "/f"
-   }
+    #fullscreen, multi-monitor
+    if ($multimon) {
+        $argList += "/multimon"
+    # custom size. Can be set progrmatically with the percent coverage input
+    } elseif (($width -gt 0) -and ($height -gt 0)) {
+        $argList += @("/w:$width","/h:$height")
+    #fullscreen, one monitor
+    } else {
+        $argList += "/f"
+    }
 
-   Start-Process -FilePath "mstsc.exe" -ArgumentList $argList
+    Start-Process -FilePath "mstsc.exe" -ArgumentList $argList
 }
 
 function Convert-PathToVimStyle([string] $path) {

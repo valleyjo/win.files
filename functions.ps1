@@ -1,5 +1,10 @@
 Function Write-Title {
-    param ([String] $title, [int16] $width = 80, [String] $char = "-")
+    param (
+        [String] $title,
+        [uint16] $width = 80,
+        [String] $char = "-",
+        [System.ConsoleColor] $color = [System.ConsoleColor]::White
+    )
 
     if ($title -eq "" -or $null -eq $title)
     {
@@ -16,7 +21,8 @@ Function Write-Title {
         }
     }
 
-    return $title
+    Write-Host $title -ForegroundColor $color
+    #return $title
 }
 
 Function Write-TruncatedString($str) {
