@@ -12,7 +12,13 @@ Function Write-Title {
     }
     elseif ($title.Length -lt $width)
     {
-        $padding = $char * (($width - 2 - $title.Length) / 2)
+        $paddingLength = ($width - 2 - $title.Length) / 2
+        if ([int]$paddingLength -gt $paddingLength)
+        {
+            $paddingLength = ($width - 3 - $title.Length) / 2
+        }
+        
+        $padding = $char * $paddingLength
         $title = "$padding $title $padding"
 
         if ($title.Length -eq ($width - 1))
