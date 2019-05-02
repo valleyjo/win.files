@@ -46,20 +46,13 @@ setx d %userprofile%\desktop\
   copy /y "%dotfiles%\Windows Powershell.lnk" %h%\desktop\
 
   :: source code pro fonts (don't expect these to change so we can leave a copy here)
-  copy /y %dotfiles%\source_code_pro\SourceCodePro-Bold.ttf %windir%\Fonts
-  copy /y %dotfiles%\source_code_pro\SourceCodePro-Black.ttf %windir%\Fonts
-  copy /y %dotfiles%\source_code_pro\SourceCodePro-Light.ttf %windir%\Fonts
-  copy /y %dotfiles%\source_code_pro\SourceCodePro-Medium.ttf %windir%\Fonts
-  copy /y %dotfiles%\source_code_pro\SourceCodePro-Regular.ttf %windir%\Fonts
-  copy /y %dotfiles%\source_code_pro\SourceCodePro-Semibold.ttf %windir%\Fonts
-  copy /y %dotfiles%\source_code_pro\SourceCodePro-ExtraLight.ttf %windir%\Fonts
+  robocopy %dotfiles%\source_code_pro\ %windir%\fonts /NFL /NDL /NJH /NJS /nc /ns /np
 
 :ModifyRegistry
   regedit /S caps_lock_to_control.reg
-  regedit /S paint_desktop_version.reg
   regedit /S source_code_pro.reg
   regedit /S windbg_workspaces.reg
-  regedit /S key_repeat.reg
+  regedit /S system_settings.reg
 
 :powershell
   powershell -Command "Set-ExecutionPolicy Unrestricted -Force"
