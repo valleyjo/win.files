@@ -1,5 +1,6 @@
 Windows Registry Editor Version 5.00
 
+; Make the key repeat rate really fast
 [HKEY_CURRENT_USER\Control Panel\Accessibility\Keyboard Response]
 "AutoRepeatDelay"="200"
 "AutoRepeatRate"="10"
@@ -10,17 +11,31 @@ Windows Registry Editor Version 5.00
 [HKEY_CURRENT_USER\Control Panel\Desktop]
 "PaintDesktopVersion"=dword:00000001
 
+; change desktop Background color to windows 95 green color
 [HKEY_CURRENT_USER\Control Panel\Colors]
 "Background"="3 131 135"
 
+; Use small taskbar buttons and combine taskbar buttons when taskbar is full
 [HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
 "TaskbarSmallIcons"=dword:00000001
 "TaskbarGlomLevel"=dword:00000001
 
+; use dark theme
 [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize]
 "AppsUseLightTheme"=dword:00000000
 
+; set accent color to dark gray and show in start menu
 [HKEY_CURRENT_USER\Software\Microsoft\Windows\DWM]
 "EnableWindowColorization"=dword:00000001
 "AccentColor"=dword:ff484a4c
 "ColorPrevalence"=dword:00000001
+
+; Hide stupid icons in the taskbar
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Search]
+"SearchboxTaskbarMode"=dword:00000000
+
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\PenWorkspace]
+"PenWorkspaceButtonDesiredVisibility"=dword:00000000
+
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\TabletTip\1.7]
+":TipbandDesiredVisibility"=dword:00000001
