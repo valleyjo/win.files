@@ -8,6 +8,14 @@ Windows Registry Editor Version 5.00
 "Flags"="59"
 "BounceTime"="0"
 
+; Set Caps lock key to ctrl key. Caps lock key is too useless and too valueable
+; of real estate to leave as is. Even though I'm a vim user I like the caps 
+; lock key as ctrl on windows because as a modifier key it's easier to reach 
+; your pinkie from 'a' to caps lock than reaching your pinkie all the way down
+; below shift.
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layout]
+"Scancode Map"=hex:00,00,00,00,00,00,00,00,02,00,00,00,1d,00,3a,00,00,00,00,00 
+
 [HKEY_CURRENT_USER\Control Panel\Desktop]
 "PaintDesktopVersion"=dword:00000001
 
